@@ -34,7 +34,7 @@ public class UserEntity implements Serializable {
     @Column(name = "correoElectronico")
     private String CorreoElectronico;
 
-    @Column(name = "Contraseña")
+    @Column(name = "Contraseña"
     private String password;
 
 }
