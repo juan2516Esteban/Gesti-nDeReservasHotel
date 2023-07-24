@@ -1,5 +1,6 @@
 package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto;
 
+import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.UserEntity;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.compoundkeys.UserCompoundKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;

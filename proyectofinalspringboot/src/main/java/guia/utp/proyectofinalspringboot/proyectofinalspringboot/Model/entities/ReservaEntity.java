@@ -28,10 +28,7 @@ public class ReservaEntity {
     @Column(name = "NumDeHabitaciones")
     private Integer numeroDeHabitaciones;
 
-   @ManyToOne(fetch = FetchType.LAZY)
-   @JoinColumns({
-           @JoinColumn(name = "key1", referencedColumnName = "key1"),
-           @JoinColumn(name = "key2", referencedColumnName = "key2")
-   })
-    private UserEntity user;
+
+    @OneToMany(mappedBy = "reservaEntity")
+    private List<UserEntity> user;
 }

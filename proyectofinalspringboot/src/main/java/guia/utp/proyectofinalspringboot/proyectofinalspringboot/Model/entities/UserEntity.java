@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Usuarios")
@@ -36,5 +37,10 @@ public class UserEntity implements Serializable {
 
     @Column(name = "Contraseña")
     private String password;
+
+
+    @ManyToOne
+    @MapsId("códigoDeHabilitación")
+    private ReservaEntity reservaEntity;
 
 }
