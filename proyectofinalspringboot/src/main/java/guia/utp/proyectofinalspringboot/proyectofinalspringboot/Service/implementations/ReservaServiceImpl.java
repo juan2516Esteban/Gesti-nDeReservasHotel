@@ -31,11 +31,8 @@ public class ReservaServiceImpl implements reservaService {
 
     @Override
     public ReservaDto crearReserva(ReservaDto reservaDto) {
-
-        UserDto userDto = reservaDto.getUser();
-
+        
         ReservaEntity reservaEntity = modelMapper.map(reservaDto, ReservaEntity.class);
-
 
         return modelMapper.map(reservaRepositorys.save(reservaEntity),ReservaDto.class);
     }

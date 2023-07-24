@@ -4,6 +4,7 @@ import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.H
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.repository.hotelRepository;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Service.interfaces.hotelService;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.HotelDto;
+import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.UserDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
