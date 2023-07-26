@@ -28,7 +28,8 @@ public class ReservaEntity {
     @Column(name = "NumDeHabitaciones")
     private Integer numeroDeHabitaciones;
 
-
-    @OneToMany(mappedBy = "reservaEntity")
-    private List<UserEntity> user;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "key1", referencedColumnName = "key1", updatable = false)
+    @JoinColumn(name = "key2", referencedColumnName = "key2", updatable = false)
+    private UserEntity user;
 }

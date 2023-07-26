@@ -27,4 +27,10 @@ public class UserControler {
     public ResponseEntity<UserResponse> obtenerUser(@RequestParam("id1") String id1, @RequestParam("id2") String id2){
         return new ResponseEntity<>(UserServi.obtenerUser(id1,id2),HttpStatus.OK);
     }
+
+    @GetMapping("obtenerUserPorCorreoContrasena")
+    public ResponseEntity<UserDto> obtenerUserPorCorreoContraseña(@RequestParam("correo") String correo,
+                                                                  @RequestParam("contrasena") String password ) {
+        return  new ResponseEntity<>(UserServi.obtenerUserPorCorreoContraseña(correo,password),HttpStatus.OK);
+    }
 }

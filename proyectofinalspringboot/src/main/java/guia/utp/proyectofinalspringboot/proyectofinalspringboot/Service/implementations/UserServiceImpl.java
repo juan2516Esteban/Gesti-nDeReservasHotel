@@ -23,6 +23,16 @@ public class UserServiceImpl implements userService {
 
     @Autowired
     userRepository userRepositorys;
+
+    @Override
+    public UserDto obtenerUserPorCorreoContraseña(String correo, String contraseña) {
+
+        UserEntity userEntity = userRepositorys.findByCorreoElectronicoAndPassword(correo,contraseña)
+                .orElseThrow(()-> new BadRequestException("El correo o contraseñas son incorectas"));
+
+        return modelMapper.map(userEntity,UserDto.class);
+    }
+
     @Override
     public UserDto crearUsuario(UserDto userDto) {
 
@@ -45,7 +55,7 @@ public class UserServiceImpl implements userService {
 
         UserEntity userEntities = userRepositorys.findByUserCompoundKey(
                 userCompoundKey).
-                orElseThrow(()-> new BadRequestException("el libro no fue encontrado "));
+                orElseThrow(()-> new BadRequestException("el usuario no fue encontrado "));
 
         return modelMapper.map(userEntities, UserResponse.class);
     }

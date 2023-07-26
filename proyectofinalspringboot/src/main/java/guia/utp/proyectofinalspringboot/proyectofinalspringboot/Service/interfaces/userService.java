@@ -7,6 +7,8 @@ import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.response
 import java.util.List;
 
 public interface userService {
+    public UserDto obtenerUserPorCorreoContraseña(String correo, String contraseña);
+
     public UserDto crearUsuario(UserDto userDto);
     public UserResponse obtenerUser(String id1 , String id2);
 }
