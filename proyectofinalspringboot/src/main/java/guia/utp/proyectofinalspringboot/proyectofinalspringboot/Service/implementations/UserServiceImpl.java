@@ -40,8 +40,8 @@ public class UserServiceImpl implements userService {
 
         UserCompoundKey userCompoundKey = new UserCompoundKey();
 
-        userCompoundKey.setKey1(userDto.getDocumento());
-        userCompoundKey.setKey2(userDto.getTipoDeDocumento());
+        userCompoundKey.setUserIdentificacion(userDto.getDocumento());
+        userCompoundKey.setUserIdentificacionType(userDto.getTipoDeDocumento());
 
         userEntity.setUserCompoundKey(userCompoundKey);
 

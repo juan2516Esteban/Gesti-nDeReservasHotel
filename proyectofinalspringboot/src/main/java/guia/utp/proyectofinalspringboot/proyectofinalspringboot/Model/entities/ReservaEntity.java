@@ -1,24 +1,27 @@
 package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities;
 
+import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.compoundkeys.ReservaCompoundKey;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.compoundkeys.UserCompoundKey;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.HabitacionesDto;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "Reservas")
-@Data
+@EqualsAndHashCode
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReservaEntity {
+public class ReservaEntity implements Serializable {
 
-    @Id
-    private String códigoDeHabilitación;
+    @EmbeddedId
+    private ReservaCompoundKey reservaCompoundKey;
 
 
     private Date fechaDeInicio;
@@ -28,8 +31,12 @@ public class ReservaEntity {
     @Column(name = "NumDeHabitaciones")
     private Integer numeroDeHabitaciones;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private HotelEntity hotel;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "key1", referencedColumnName = "key1", updatable = false)
-    @JoinColumn(name = "key2", referencedColumnName = "key2", updatable = false)
+    @JoinColumn(name = "UserCompound1", referencedColumnName = "userIdentificacion", updatable = false)
+    @JoinColumn(name = "UserCompound2", referencedColumnName = "userIdentificacionType", updatable = false)
     private UserEntity user;
+
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class HotelDto {
 
-    private Integer idHotel;
+    private String idHotel;
 
     private String nombreHotel;
 
