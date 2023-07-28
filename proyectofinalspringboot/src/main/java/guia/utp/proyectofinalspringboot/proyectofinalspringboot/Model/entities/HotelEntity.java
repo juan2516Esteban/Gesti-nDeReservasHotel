@@ -1,5 +1,6 @@
 package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities;
 
+import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.HotelDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -36,6 +37,9 @@ public class HotelEntity {
 
     @Column(name = "correoElectonico")
     private String correoElectronico;
+
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+    List<HabitacionEntity> habitacionEntities;
 
     @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
     List<ReservaEntity> reservaEntity;
