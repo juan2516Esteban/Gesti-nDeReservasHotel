@@ -2,21 +2,20 @@ package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.
 
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
+
 import java.io.Serializable;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Embeddable
 @EqualsAndHashCode
 @Setter
 @Getter
 @ToString
-public class UserCompoundKey implements Serializable {
+@Embeddable
+public class HabitacionCompoundKey  implements Serializable {
 
-    private String userIdentificacion;
-
-    private String userIdentificacionType;
-
+    private String idhabitacion;
+    private String idHotel;
 }

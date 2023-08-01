@@ -1,14 +1,13 @@
 package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities;
 
+import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.HotelDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,24 +17,30 @@ import javax.persistence.Table;
 public class HotelEntity {
 
     @Id
-    private Integer idHotel;
+    private String idHotel;
 
-    @Column(name = "Nombre")
+    @Column(name = "nombre")
     private String nombreHotel;
 
-    @Column(name = "CpacidadReservas")
+    @Column(name = "capacidadReservas")
     private Integer capacidadDeReservas;
 
 
-    @Column(name = "NumeroHabitaciones")
+    @Column(name = "numeroHabitaciones")
     private Integer numeroDeHabitaciones;
 
-    @Column(name = "Telefono")
+    @Column(name = "telefono")
     private String telefono;
 
-    @Column(name = "Direccion")
+    @Column(name = "direccion")
     private String direccion;
 
-    @Column(name = "CorreoElectonico")
+    @Column(name = "correoElectonico")
     private String correoElectronico;
+
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+    List<HabitacionEntity> habitacionEntities;
+
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+    List<ReservaEntity> reservaEntity;
 }

@@ -9,4 +9,6 @@ import java.util.Optional;
 
 public interface userRepository extends JpaRepository<UserEntity , UserCompoundKey> {
     Optional<UserEntity> findByUserCompoundKey(UserCompoundKey userCompoundKey);
+
+    Optional<UserEntity>findByCorreoElectronicoAndPassword(String correo,String contrasena);
 }

@@ -33,14 +33,12 @@ public class UserEntity implements Serializable {
     private String tipoDeDocumento;
 
     @Column(name = "correoElectronico")
-    private String CorreoElectronico;
+    private String correoElectronico;
 
     @Column(name = "Contraseña")
     private String password;
 
-
-    @ManyToOne
-    @MapsId("códigoDeHabilitación")
-    private ReservaEntity reservaEntity;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ReservaEntity> reservaEntities;
 
 }

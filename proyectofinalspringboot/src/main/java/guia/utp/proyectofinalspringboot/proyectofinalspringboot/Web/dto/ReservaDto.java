@@ -1,6 +1,7 @@
 package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto;
 
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.UserEntity;
+import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.compoundkeys.ReservaCompoundKey;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.compoundkeys.UserCompoundKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,13 +18,15 @@ import java.util.List;
 @NoArgsConstructor
 public class ReservaDto {
 
-    private String códigoDeHabilitación;
+    private ReservaCompoundKey reservaCompoundKey;
 
     private Date fechaDeInicio;
 
     private Date fechaDeFin;
 
     private Integer numeroDeHabitaciones;
+
+    private HotelDto hotel;
 
     private UserDto user;
 

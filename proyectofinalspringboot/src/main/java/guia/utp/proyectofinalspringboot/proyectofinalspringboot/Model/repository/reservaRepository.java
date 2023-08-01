@@ -3,5 +3,5 @@ package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.repositor
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.ReservaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface reservaRepository extends JpaRepository<ReservaEntity , Integer> {
+public interface reservaRepository extends JpaRepository<ReservaEntity , String> {
 }

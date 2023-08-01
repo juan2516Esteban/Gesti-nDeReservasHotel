@@ -2,7 +2,6 @@ package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.
 
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 
@@ -13,10 +12,9 @@ import java.io.Serializable;
 @Setter
 @Getter
 @ToString
-public class UserCompoundKey implements Serializable {
+public class ReservaCompoundKey implements Serializable {
 
-    private String userIdentificacion;
-
-    private String userIdentificacionType;
+    private UserCompoundKey idUser;
+    private String idHoteles;
 
 }

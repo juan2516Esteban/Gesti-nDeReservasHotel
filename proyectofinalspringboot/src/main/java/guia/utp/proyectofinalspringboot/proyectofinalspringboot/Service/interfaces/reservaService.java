@@ -3,5 +3,10 @@ package guia.utp.proyectofinalspringboot.proyectofinalspringboot.Service.interfa
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.ReservaDto;
 
 public interface reservaService {
-   public ReservaDto crearReserva(ReservaDto reservaDto);
+    ReservaDto crearReserva(ReservaDto reservaDto);
+
+
+    void eliminarReserva(ReservaDto reservaDto);
+
+    ReservaDto modificarReserva(ReservaDto reservaDto);
 }
