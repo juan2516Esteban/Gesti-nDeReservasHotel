@@ -5,9 +5,13 @@ import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.entities.c
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Model.repository.habitacionRepository;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Service.interfaces.habitacionService;
 import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.HabitacionesDto;
+import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.exceptions.BadRequestException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class HabitacionServiceImpl implements habitacionService {
@@ -25,11 +29,26 @@ public class HabitacionServiceImpl implements habitacionService {
         HabitacionCompoundKey habitacionCompoundKey = new HabitacionCompoundKey();
 
         habitacionCompoundKey.setIdHotel(habitacionesDto.getHotel().getIdHotel());
-        habitacionCompoundKey.setIdhabitacion(habitacionesDto.getIdHabitacion());
+        habitacionCompoundKey.setIdhabitacion(habitacionesDto.getIdHabitaciones());
 
         habitacionEntity.setHabitacionCompoundKey(habitacionCompoundKey);
 
 
         return (modelMapper.map(habitacionRepositorys.save(habitacionEntity),HabitacionesDto.class));
     }
+
+    @Override
+    public List<HabitacionesDto> obtenerHabitaciones(String idHotel) {
+
+        List<HabitacionEntity> habitacionEntities = habitacionRepositorys.findByHotelIdHotel(idHotel).
+                orElseThrow(() -> new BadRequestException("No se encontraron habitaciones"));
+
+        List<HabitacionesDto> habitacionesDtos = habitacionEntities.stream()
+                .map(HabitacionEntity -> modelMapper.map(HabitacionEntity,HabitacionesDto.class))
+                .collect(Collectors.toList());
+
+        return habitacionesDtos;
+    }
+
+
 }

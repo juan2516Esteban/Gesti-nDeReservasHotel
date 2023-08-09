@@ -5,10 +5,9 @@ import guia.utp.proyectofinalspringboot.proyectofinalspringboot.Web.dto.Habitaci
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api-Habitacion/v1")
@@ -20,5 +19,10 @@ public class HabitacionControler {
     @PostMapping("crearHabitacion")
     public ResponseEntity<HabitacionesDto> crearHabitacion(@RequestBody HabitacionesDto habitacionesDto){
         return new ResponseEntity<>(habitacionServices.crearHbaitacion(habitacionesDto),HttpStatus.CREATED);
+    }
+
+    @GetMapping("obtenerHabitaciones")
+    public ResponseEntity<List<HabitacionesDto>> ObtenerHabitacion(@RequestParam("idHotel") String idHotel){
+        return new ResponseEntity<>(habitacionServices.obtenerHabitaciones(idHotel),HttpStatus.OK);
     }
 }

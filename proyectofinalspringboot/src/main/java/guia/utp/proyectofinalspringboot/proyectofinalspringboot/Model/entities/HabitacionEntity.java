@@ -19,9 +19,8 @@ public class HabitacionEntity implements Serializable {
     @EmbeddedId
     private HabitacionCompoundKey habitacionCompoundKey;
 
-
     @Column(name = "Baños")
-    private Integer numBaños;
+    private Integer numBanos;
 
     @Column(name = "capacidad")
     private Integer capacidad;

@@ -12,9 +12,9 @@ public class HabitacionesDto {
 
     private HabitacionCompoundKey habitacionCompoundKey;
 
-    private String idHabitacion;
+    private String idHabitaciones;
 
-    private Integer numBaños;
+    private Integer numBanos;
 
     private Integer capacidad;
 
